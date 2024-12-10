@@ -1,0 +1,82 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+$dselect-clear-icon-width: .625rem;
+
+.dselect-wrapper {
+
+  // Toggler
+  .form-select {
+    padding-left: $form-select-padding-x / 2; // Reduce padding
+    padding-right: $form-select-padding-x / 2; // Reduce padding
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .125rem; // Reduce gap
+    text-align: left;
+    &.dselect-clearable {
+      padding-right: add($form-select-indicator-padding + ($form-select-padding-x / 4), $dselect-clear-icon-width);
+    }
+  }
+
+  // Menu
+  .dropdown-menu {
+    padding: $form-select-padding-x / 6; // Reduce padding further
+    width: 100%; 
+    overflow-y: auto;
+    margin: 0; // Ensure no margin
+  }
+
+  // Item
+  .dropdown-item,
+  .dropdown-header {
+    padding-left: $form-select-padding-x / 6; // Reduce padding
+    padding-right: $form-select-padding-x / 6; // Reduce padding
+    padding-top: $dropdown-item-padding-y / 6; // Reduce padding
+    padding-bottom: $dropdown-item-padding-y / 6; // Reduce padding
+    margin: 0; // Ensure no margin
+  }
+
+  .form-select-sm + .dropdown-menu .dropdown-item,
+  .form-select-sm + .dropdown-menu .dropdown-header,
+  .form-select-lg + .dropdown-menu .dropdown-item,
+  .form-select-lg + .dropdown-menu .dropdown-header {
+    padding-left: $form-select-padding-x-sm / 6; // Adjust for small/large sizes
+    padding-right: $form-select-padding-x-sm / 6;
+    padding-top: $dropdown-item-padding-y / 6;
+    padding-bottom: $dropdown-item-padding-y / 6;
+  }
+
+  // Search input
+  .form-control {
+    border-radius: 0;
+    box-shadow: none !important;
+    border-color: $input-border-color !important;
+    padding: subtract($dropdown-item-padding-y, 2px) subtract($form-select-padding-x / 6, $input-border-width); // Further reduce padding
+    font-size: inherit;
+  }
+
+  // No results
+  .dselect-no-results {
+    padding: $dropdown-item-padding-y / 6 $form-select-padding-x / 6; // Reduce padding
+  }
+
+  // Tag
+  .dselect-tag {
+    background-color: $secondary;
+    color: $light;
+    padding-left: .25rem; // Reduce padding
+    padding-right: .25rem; // Reduce padding
+    border-radius: $border-radius;
+    height: calc(#{$form-select-line-height} * #{$font-size-base} - 5px); // Adjust height
+    line-height: calc((#{$form-select-line-height} * #{$font-size-base}) - 3px); // Adjust line-height
+    position: relative;
+  }
+
+  // Placeholder
+  .dselect-placeholder {
+    color: $input-placeholder-color;
+    padding: $dropdown-item-padding-y / 6; // Reduce padding
+  }
+}
